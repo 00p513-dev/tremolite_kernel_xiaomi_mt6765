@@ -29,6 +29,9 @@ GZFLAGS		:=-9
 # Never generate .eh_frame
 KBUILD_CFLAGS	+= $(call cc-option,-fno-dwarf2-cfi-asm)
 
+# Don't let maybe uninitialized fail build
+KBUILD_CFLAGS	+= -Wno-maybe-uninitialized
+
 # This should work on most of the modern platforms
 KBUILD_DEFCONFIG := multi_v7_defconfig
 
